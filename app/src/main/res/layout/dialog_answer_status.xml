@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_section_parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/_16dp">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="@dimen/_72dp"
+        android:layout_height="@dimen/_72dp"
+        android:layout_marginTop="@dimen/_12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivClose"
+        app:srcCompat="@drawable/ic_warning_yellow"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tvQuestion"
+        style="@style/TextSubtitleSemiBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp"
+        android:text="Question"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTick1"
+        app:layout_constraintTop_toTopOf="@+id/tvTick1" />
+
+    <TextView
+        android:id="@+id/tvAnswerStatus"
+        style="@style/TextBodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="Your answer is correct!!"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTick1"
+        app:layout_constraintTop_toTopOf="@+id/tvTick1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nextBTN"
+        style="@style/ButtonPrimaryLarge"
+        android:layout_width="@dimen/_200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:text="@string/next"
+        app:layout_constraintBottom_toTopOf="@+id/tvYesExit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMessage3" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

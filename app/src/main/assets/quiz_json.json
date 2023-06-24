@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "In the fighting game Skullgirls, which character utilizes a folding chair called the Hurting as a weapon?",
+    "correct_answer": "Beowulf",
+    "answers": [
+      "Beowulf",
+      "Big Band",
+      "Cerebella",
+      "Squigly"
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "Rocket League is a game which features..",
+    "correct_answer": "Cars",
+    "answers": [
+      "Cars",
+      "Helicopters",
+      "Planes",
+      "Submarines"
+    ]
+  },
+  {
+    "id": 3,
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "Who is the leader of Team Mystic in Pokemon Go?",
+    "correct_answer": "Blanche",
+    "answers": [
+      "Blanche",
+      "Candela",
+      "Spark",
+      "Willow"
+    ]
+  },
+  {
+    "id": 4,
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "Which of the following was NOT a playable character in the game Kingdom Hearts: Birth by Sleep?",
+    "correct_answer": "Ignis",
+    "answers": [
+      "Aqua",
+      "Ignis",
+      "Terra",
+      "Ventus"
+    ]
+  },
+  {
+    "id": 5,
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "What household item make the characters of Steins, Gate travel through time?",
+    "correct_answer": "Microwave",
+    "answers": [
+      "Computer",
+      "Microwave",
+      "Refrigerator",
+      "Televison"
+    ]
+  },
+  {
+    "id": 6,
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "What game was used to advertise Steam?",
+    "correct_answer": "Counter-Strike 1.6",
+    "answers": [
+      "Counter-Strike 1.6",
+      "Half-Life",
+      "Half-Life 2",
+      "Team Fortress"
+    ]
+  },
+  {
+    "id": 7,
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "In the game Fire Emblem: Shadow Dragon, what is the central protagonist's name?",
+    "correct_answer": "Marth",
+    "answers": [
+      "Eliwood",
+      "Marth",
+      "Robin",
+      "Roy"
+    ]
+  },
+  {
+    "id": 8,
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "What is the name of a popular franchise that includes placing blocks down and surviving in an open world? ",
+    "correct_answer": "Minecraft",
+    "answers": [
+      "Grand Theft Auto V",
+      "Minecraft",
+      "Roblox",
+      "Unturned"
+    ]
+  },
+  {
+    "id": 9,
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "In Splatoon 2, who are the members of Off The Hook?",
+    "correct_answer": "Pearl & Marina",
+    "answers": [
+      "Callie & Marie",
+      "Diamond & Aquamarina",
+      "DJ Octavio & Crusty Sean",
+      "Pearl & Marina"
+    ]
+  },
+  {
+    "id": 10,
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "In the PAYDAY series, who betrayed the PAYDAY gang that got Hoxton arrested?",
+    "correct_answer": "Hector",
+    "answers": [
+      "Hector",
+      "The Dentist",
+      "The Elephant",
+      "Vlad"
+    ]
+  }
+]

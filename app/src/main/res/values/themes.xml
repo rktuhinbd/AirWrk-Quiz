@@ -1,0 +1,71 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AirWrkQuiz" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/green_500</item>
+        <item name="colorPrimaryVariant">@color/green_500</item>
+        <item name="colorOnPrimary">@color/green_200</item>
+
+        <!-- Activity Transition Animation. -->
+        <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+
+    </style>
+
+    <style name="Theme.AirWrkQuiz" parent="Base.Theme.AirWrkQuiz" />
+
+
+    <!-- Custom activity transition animation. -->
+    <style name="ActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+    </style>
+
+    <!--     ~ ~ ~ > Text Style Header SemiBold < ~ ~ ~ -->
+    <style name="TextHeaderSemiBold" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/text_color_600</item>
+        <item name="android:textSize">@dimen/text_size_h1</item>
+        <item name="fontFamily">@font/sf_pro_text_semibold</item>
+    </style>
+
+    <!--     ~ ~ ~ > Text Style Subtitle / Section-Header SemiBold < ~ ~ ~ -->
+    <style name="TextSubtitleSemiBold" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/text_color_600</item>
+        <item name="android:textSize">@dimen/text_size_h2</item>
+        <item name="fontFamily">@font/sf_pro_text_semibold</item>
+    </style>
+
+    <!--     ~ ~ ~ > Text Style Body / Paragraph SemiBold < ~ ~ ~ -->
+
+    <!--     ~ ~ ~ > Text Style Body / Paragraph Medium < ~ ~ ~ -->
+    <style name="TextBodyMedium" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/text_color_600</item>
+        <item name="android:textSize">@dimen/text_size_h3</item>
+        <item name="fontFamily">@font/sf_pro_text_medium</item>
+    </style>
+
+    <!--     ~ ~ ~ > Text Style Body / Paragraph Regular < ~ ~ ~ -->
+    <style name="TextBodyRegular" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/text_color_600</item>
+        <item name="android:textSize">@dimen/text_size_h3</item>
+        <item name="fontFamily">@font/sf_pro_text_regular</item>
+    </style>
+
+
+    <!--     ~ ~ ~ > Button Style Primary Large < ~ ~ ~ -->
+    <style name="ButtonPrimaryLarge" parent="TextAppearance.AppCompat.Widget.Button">
+        <item name="android:background">@drawable/selector_button_primary</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:layout_height">@dimen/_48dp</item>
+        <item name="android:paddingStart">@dimen/_16dp</item>
+        <item name="android:paddingEnd">@dimen/_16dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_size_h2</item>
+    </style>
+
+    <!--     ~ ~ ~ > Button Style Primary Small < ~ ~ ~ -->
+
+</resources>
