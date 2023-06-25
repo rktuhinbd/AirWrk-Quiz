@@ -38,9 +38,7 @@ class QuizActivity : AppCompatActivity() {
 
     private var answerList: ArrayList<QuizJsonData> = arrayListOf()
 
-    private val totalTimeInMillis: Long = 5000
-
-    /*** => 60 secs ***/
+    private val totalTimeInMillis: Long = 10000 /*** => 10 secs ***/
 
     private var questionIndex: Int = 0
 
