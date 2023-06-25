@@ -3,6 +3,7 @@ package com.rktuhinbd.airwrk_quiz.history
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.GsonBuilder
@@ -53,10 +54,13 @@ class HistoryActivity : AppCompatActivity() {
 
         roomViewModel.quizDataObserver.observe(this@HistoryActivity) { data ->
 
-            Log.d("TAG", "initObserver: ${GsonBuilder().setPrettyPrinting().create().toJson(data)}")
-
             if (data.isNotEmpty()) {
+                binding.tvEmptyData.visibility = View.GONE
+                binding.rvRetake.visibility = View.VISIBLE
                 showQuizHistory(data)
+            } else {
+                binding.tvEmptyData.visibility = View.VISIBLE
+                binding.rvRetake.visibility = View.GONE
             }
         }
     }
