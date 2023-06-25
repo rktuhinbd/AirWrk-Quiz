@@ -4,8 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.gson.GsonBuilder
 import com.rktuhinbd.airwrk_quiz.R
 import com.rktuhinbd.airwrk_quiz.databinding.ActivityQuizBinding
 import com.rktuhinbd.airwrk_quiz.quiz.model.QuizData
@@ -38,7 +40,9 @@ class QuizActivity : AppCompatActivity() {
 
     private var answerList: ArrayList<QuizJsonData> = arrayListOf()
 
-    private val totalTimeInMillis: Long = 10000 /*** => 10 secs ***/
+    private val totalTimeInMillis: Long = 10000
+
+    /*** => 10 secs ***/
 
     private var questionIndex: Int = 0
 
@@ -147,6 +151,10 @@ class QuizActivity : AppCompatActivity() {
                 }
 
                 val quizData = QuizData()
+
+                val quizJsonData = readJsonFile(this, "quiz_json.json")
+
+                quizList[0].answers = quizJsonData[0].answers
 
                 answerList.addAll(quizList)
 
