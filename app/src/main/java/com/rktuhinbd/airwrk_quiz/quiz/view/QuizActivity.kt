@@ -4,10 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.google.gson.GsonBuilder
 import com.rktuhinbd.airwrk_quiz.R
 import com.rktuhinbd.airwrk_quiz.databinding.ActivityQuizBinding
 import com.rktuhinbd.airwrk_quiz.quiz.model.QuizData
@@ -40,7 +38,9 @@ class QuizActivity : AppCompatActivity() {
 
     private var answerList: ArrayList<QuizJsonData> = arrayListOf()
 
-    private val totalTimeInMillis: Long = 5000 /*** => 60 secs ***/
+    private val totalTimeInMillis: Long = 5000
+
+    /*** => 60 secs ***/
 
     private var questionIndex: Int = 0
 
@@ -59,10 +59,13 @@ class QuizActivity : AppCompatActivity() {
         initQuizRecyclerView()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initComponents() {
 
         roomViewModel = ViewModelProvider(this)[QuizRoomViewModel::class.java]
 
+        questionIndex = 0
+        answerList.clear()
         startCountDown()
 
         binding.toolbar.tvQuestionIndex.text = "${questionIndex + 1}/${quizList.size}"
@@ -74,6 +77,7 @@ class QuizActivity : AppCompatActivity() {
 
     private fun initQuizRecyclerView() {
 
+        questionIndex = 0
         rvAdapter = AnswerRvAdapter(
             this,
             quizList[questionIndex].correctAnswer ?: "",
@@ -82,8 +86,10 @@ class QuizActivity : AppCompatActivity() {
         binding.answersRV.adapter = rvAdapter
 
         rvAdapter.onItemClick = {
-            quizList[questionIndex].givenAnswer = it
             countdownTimer.cancel()
+
+            quizList[questionIndex].givenAnswer = it
+
             showAnswerDialog()
         }
     }
@@ -103,11 +109,8 @@ class QuizActivity : AppCompatActivity() {
         answerDialog.show(supportFragmentManager, TAG)
 
         answerDialog.onCallbackListener = {
-            if (questionIndex + 1 < quizList.size) {
 
-                answerList.add(quizList[questionIndex])
-                Log.d(TAG, "showAnswerDialog: data__ ${GsonBuilder().setPrettyPrinting().create().toJson(quizList[questionIndex])}")
-
+            if (questionIndex < quizList.size - 1) {
                 if (quizList[questionIndex].givenAnswer == quizList[questionIndex].correctAnswer) {
                     score++
                 } else {
@@ -130,8 +133,7 @@ class QuizActivity : AppCompatActivity() {
                 )
             } else {
 
-                if(questionIndex == quizList.size - 1){
-                    answerList.add(quizList[questionIndex])
+                if (questionIndex == quizList.size - 1) {
 
                     if (quizList[questionIndex].givenAnswer == quizList[questionIndex].correctAnswer) {
                         score++
@@ -147,13 +149,16 @@ class QuizActivity : AppCompatActivity() {
                 }
 
                 val quizData = QuizData()
+
+                answerList.addAll(quizList)
+
                 quizData.quizData?.addAll(answerList)
                 quizData.date = getCurrentDateTime()
                 quizData.timeTaken = totalTimeTakenInSec
-
                 roomViewModel.addQuizData(quizData)
 
                 startActivity(Intent(this, QuizResultActivity::class.java))
+                finish()
             }
         }
     }

@@ -15,7 +15,7 @@ data class QuizData(
 
     @PrimaryKey(autoGenerate = true)
     @SerializedName(QuizTable.ID)
-    val id: Int = 1,
+    val id: Int = 0,
 
     @ColumnInfo(name = QuizTable.DATE)
     @SerializedName(QuizTable.DATE)

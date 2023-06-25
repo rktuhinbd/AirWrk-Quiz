@@ -2,8 +2,10 @@ package com.rktuhinbd.airwrk_quiz.history
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.gson.GsonBuilder
 import com.rktuhinbd.airwrk_quiz.MainActivity
 import com.rktuhinbd.airwrk_quiz.R
 import com.rktuhinbd.airwrk_quiz.databinding.ActivityHistoryBinding
@@ -50,13 +52,16 @@ class HistoryActivity : AppCompatActivity() {
     private fun initObserver() {
 
         roomViewModel.quizDataObserver.observe(this@HistoryActivity) { data ->
+
+            Log.d("TAG", "initObserver: ${GsonBuilder().setPrettyPrinting().create().toJson(data)}")
+
             if (data.isNotEmpty()) {
                 showQuizHistory(data)
             }
         }
     }
 
-    private fun showQuizHistory(data: List<QuizData>?) {
+    private fun showQuizHistory(data: List<QuizData>) {
 
         val rvAdapter = QuizHistoryRvAdapter(this, data as MutableList<QuizData>)
         binding.rvRetake.adapter = rvAdapter
