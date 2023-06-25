@@ -4,8 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.gson.GsonBuilder
 import com.rktuhinbd.airwrk_quiz.R
 import com.rktuhinbd.airwrk_quiz.databinding.ActivityQuizBinding
 import com.rktuhinbd.airwrk_quiz.quiz.model.QuizData
@@ -101,10 +103,10 @@ class QuizActivity : AppCompatActivity() {
         answerDialog.show(supportFragmentManager, TAG)
 
         answerDialog.onCallbackListener = {
-
             if (questionIndex + 1 < quizList.size) {
 
                 answerList.add(quizList[questionIndex])
+                Log.d(TAG, "showAnswerDialog: data__ ${GsonBuilder().setPrettyPrinting().create().toJson(quizList[questionIndex])}")
 
                 if (quizList[questionIndex].givenAnswer == quizList[questionIndex].correctAnswer) {
                     score++
@@ -126,7 +128,6 @@ class QuizActivity : AppCompatActivity() {
                     quizList[questionIndex].correctAnswer ?: "",
                     quizList[questionIndex].answers
                 )
-
             } else {
 
                 if(questionIndex == quizList.size - 1){

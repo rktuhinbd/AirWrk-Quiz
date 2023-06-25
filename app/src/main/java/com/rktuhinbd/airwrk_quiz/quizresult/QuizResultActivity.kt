@@ -76,8 +76,9 @@ class QuizResultActivity : AppCompatActivity() {
             } else {
                 if (it.givenAnswer.equals("")) {
                     skippedCount++
+                } else {
+                    wrongAnswerCount++
                 }
-                wrongAnswerCount++
             }
         }
 
