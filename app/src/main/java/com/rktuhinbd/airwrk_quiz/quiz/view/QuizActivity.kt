@@ -1,5 +1,6 @@
 package com.rktuhinbd.airwrk_quiz.quiz.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -90,6 +91,7 @@ class QuizActivity : AppCompatActivity() {
         countdownTimer.start()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showAnswerDialog() {
 
         answerDialog = AnswerStatusDialog(
@@ -112,9 +114,7 @@ class QuizActivity : AppCompatActivity() {
                         score = 0
                     }
                 }
-
                 questionIndex++
-
                 startCountDown()
 
                 binding.toolbar.tvQuestionIndex.text = "${questionIndex + 1}/${quizList.size}"
@@ -126,7 +126,25 @@ class QuizActivity : AppCompatActivity() {
                     quizList[questionIndex].correctAnswer ?: "",
                     quizList[questionIndex].answers
                 )
+
             } else {
+
+                if(questionIndex == quizList.size - 1){
+                    answerList.add(quizList[questionIndex])
+
+                    if (quizList[questionIndex].givenAnswer == quizList[questionIndex].correctAnswer) {
+                        score++
+                    } else {
+                        score--
+                        if (score < 0) {
+                            score = 0
+                        }
+                    }
+
+                    binding.toolbar.tvQuestionIndex.text = "${questionIndex + 1}/${quizList.size}"
+                    binding.toolbar.tvScore.text = "Score: $score"
+                }
+
                 val quizData = QuizData()
                 quizData.quizData?.addAll(answerList)
                 quizData.date = getCurrentDateTime()

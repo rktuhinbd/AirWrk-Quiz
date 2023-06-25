@@ -8,26 +8,10 @@
     tools:context=".quizresult.QuizResultActivity">
 
     <include
-        android:id="@+id/layoutRetakeResult"
-        layout="@layout/layout_retake_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutExamResult"
-        app:layout_constraintVertical_bias="0"
-        app:layout_goneMarginTop="@dimen/_8dp"
-        tools:visibility="visible" />
-
-    <include
         android:id="@+id/layoutExamResult"
         layout="@layout/layout_quiz_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

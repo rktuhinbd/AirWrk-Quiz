@@ -44,4 +44,20 @@ object Utils {
         val currentDate = Date()
         return dateFormat.format(currentDate)
     }
+
+    fun formatDate(inputDateString: String): String {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
+
+        val date = inputFormat.parse(inputDateString)
+        return outputFormat.format(date)
+    }
+
+    fun formatTime(inputTimeString: String): String {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+
+        val date = inputFormat.parse(inputTimeString)
+        return outputFormat.format(date)
+    }
 }

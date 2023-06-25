@@ -68,7 +68,7 @@ class QuizResultActivity : AppCompatActivity() {
 
         val congratulations: String
         val passFail: String
-        var score = 0
+        var score: Int
         var correctAnswerCount = 0
         var wrongAnswerCount = 0
         var skippedCount = 0

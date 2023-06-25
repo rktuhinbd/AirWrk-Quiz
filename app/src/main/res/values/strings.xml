@@ -16,4 +16,5 @@
     <string name="retry">Retry</string>
     <string name="retake_result">Retake Result</string>
     <string name="sorry_">Sorry!!!</string>
+    <string name="quiz_history">Quiz History</string>
 </resources>

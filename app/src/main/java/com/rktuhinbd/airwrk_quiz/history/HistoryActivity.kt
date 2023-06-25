@@ -1,12 +1,17 @@
 package com.rktuhinbd.airwrk_quiz.history
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.GsonBuilder
+import com.rktuhinbd.airwrk_quiz.MainActivity
+import com.rktuhinbd.airwrk_quiz.R
 import com.rktuhinbd.airwrk_quiz.databinding.ActivityHistoryBinding
+import com.rktuhinbd.airwrk_quiz.quiz.model.QuizData
 import com.rktuhinbd.airwrk_quiz.quiz.viewmodel.QuizRoomViewModel
+import com.rktuhinbd.airwrk_quiz.utilities.Utils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,15 +29,44 @@ class HistoryActivity : AppCompatActivity() {
 
         roomViewModel = ViewModelProvider(this)[QuizRoomViewModel::class.java]
 
+        initComponent()
+        initListener()
         initObserver()
+    }
+
+    private fun initListener() {
+        binding.toolbar.ivBack.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    private fun initComponent() {
+        binding.toolbar.tvTitle.text = getString(R.string.quiz_history)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this@HistoryActivity, MainActivity::class.java))
+        finish()
     }
 
     private fun initObserver() {
 
         roomViewModel.quizDataObserver.observe(this@HistoryActivity) { data ->
             if (data.isNotEmpty()) {
-                Log.d("WOW", "onCreate: ${GsonBuilder().setPrettyPrinting().create().toJson(data)}")
+                showQuizHistory(data)
             }
         }
+    }
+
+    private fun showQuizHistory(data: List<QuizData>?) {
+
+        val date =  Utils.formatDate(data?.get(0)?.date ?: "")
+        val time =  Utils.formatTime(data?.get(0)?.date ?: "")
+
+        val rvAdapter = QuizHistoryRvAdapter(this, data as MutableList<QuizData>)
+        binding.rvRetake.adapter = rvAdapter
+
+        Log.d("WOW__", "data: $date, time: $time")
     }
 }
