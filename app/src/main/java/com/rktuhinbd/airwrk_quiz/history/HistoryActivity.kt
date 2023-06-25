@@ -2,16 +2,13 @@ package com.rktuhinbd.airwrk_quiz.history
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.google.gson.GsonBuilder
 import com.rktuhinbd.airwrk_quiz.MainActivity
 import com.rktuhinbd.airwrk_quiz.R
 import com.rktuhinbd.airwrk_quiz.databinding.ActivityHistoryBinding
 import com.rktuhinbd.airwrk_quiz.quiz.model.QuizData
 import com.rktuhinbd.airwrk_quiz.quiz.viewmodel.QuizRoomViewModel
-import com.rktuhinbd.airwrk_quiz.utilities.Utils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -61,12 +58,13 @@ class HistoryActivity : AppCompatActivity() {
 
     private fun showQuizHistory(data: List<QuizData>?) {
 
-        val date =  Utils.formatDate(data?.get(0)?.date ?: "")
-        val time =  Utils.formatTime(data?.get(0)?.date ?: "")
-
         val rvAdapter = QuizHistoryRvAdapter(this, data as MutableList<QuizData>)
         binding.rvRetake.adapter = rvAdapter
 
-        Log.d("WOW__", "data: $date, time: $time")
+        rvAdapter.onItemClick = {
+            val intent = Intent(this@HistoryActivity, QuizDetailsActivity::class.java)
+            intent.putParcelableArrayListExtra("data_extra", ArrayList(it))
+            startActivity(intent)
+        }
     }
 }

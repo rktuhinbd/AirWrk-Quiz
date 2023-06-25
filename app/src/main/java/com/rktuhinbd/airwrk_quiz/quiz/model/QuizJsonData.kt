@@ -1,8 +1,10 @@
 package com.rktuhinbd.airwrk_quiz.quiz.model
 
 import com.google.gson.annotations.SerializedName
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-
+@Parcelize
 data class QuizJsonData (
 
     @SerializedName("id"                ) var id               : Int?              = null,
@@ -14,4 +16,4 @@ data class QuizJsonData (
     @SerializedName("given_answer"      ) var givenAnswer      : String?           = "",
     @SerializedName("answers"           ) var answers          : ArrayList<String> = arrayListOf(),
 
-)
+) : Parcelable

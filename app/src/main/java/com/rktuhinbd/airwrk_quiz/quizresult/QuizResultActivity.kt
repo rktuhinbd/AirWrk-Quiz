@@ -55,10 +55,7 @@ class QuizResultActivity : AppCompatActivity() {
                 quizDataList.clear()
                 quizDataList.addAll(data)
 
-                Log.d("WOW", "onCreate: ${GsonBuilder().setPrettyPrinting().create().toJson(data)}")
-
                 showQuizResult(quizDataList[quizDataList.size - 1])
-
             }
         }
     }

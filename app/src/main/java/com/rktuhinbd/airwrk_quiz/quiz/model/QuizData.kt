@@ -1,13 +1,16 @@
 package com.rktuhinbd.airwrk_quiz.quiz.model
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 @Entity(tableName = QuizTable.TABLE_NAME)
 @TypeConverters(QuizJsonDataTypeConverter::class)
+@Parcelize
 data class QuizData(
 
     @PrimaryKey(autoGenerate = true)
@@ -26,4 +29,4 @@ data class QuizData(
     @SerializedName(QuizTable.QUIZ_DATA)
     var quizData: MutableList<QuizJsonData>? = arrayListOf()
 
-)
+) : Parcelable

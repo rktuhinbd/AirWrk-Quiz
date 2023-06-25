@@ -17,4 +17,5 @@
     <string name="retake_result">Retake Result</string>
     <string name="sorry_">Sorry!!!</string>
     <string name="quiz_history">Quiz History</string>
+    <string name="quiz_details">Quiz Details</string>
 </resources>

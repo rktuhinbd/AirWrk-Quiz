@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rktuhinbd.airwrk_quiz.databinding.RvItemQuizHistoryBinding
 import com.rktuhinbd.airwrk_quiz.quiz.model.QuizData
+import com.rktuhinbd.airwrk_quiz.quiz.model.QuizJsonData
 import com.rktuhinbd.airwrk_quiz.utilities.Utils
 
 class QuizHistoryRvAdapter(
@@ -14,7 +15,7 @@ class QuizHistoryRvAdapter(
 ) :
     RecyclerView.Adapter<QuizHistoryRvAdapter.ViewHolder>() {
 
-    var onItemClick: ((QuizData) -> Unit)? = null
+    var onItemClick: ((List<QuizJsonData>) -> Unit)? = null
 
     class ViewHolder(val binding: RvItemQuizHistoryBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -57,7 +58,7 @@ class QuizHistoryRvAdapter(
         viewHolder.binding.tvScore.text = "Your Score: $score/${dataSet.quizData?.size}"
 
         viewHolder.binding.body.setOnClickListener {
-            onItemClick?.invoke(dataSet)
+            dataSet.quizData?.let { it1 -> onItemClick?.invoke(it1) }
         }
     }
 
