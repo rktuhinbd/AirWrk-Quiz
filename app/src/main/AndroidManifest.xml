@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AirWrkQuiz"
         tools:targetApi="31">
         <activity
-            android:name=".quizresult.QuizEndActivity"
+            android:name=".quizresult.QuizResultActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"

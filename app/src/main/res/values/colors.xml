@@ -5,6 +5,14 @@
     <color name="green_500">#1CAB55</color>
     <color name="green_200">#A4F6AC</color>
 
+    <!--    Grey -->
+    <color name="grey_500">#6B7280</color>
+    <color name="grey_400">#D1D5DB</color>
+    <color name="grey_300">#E8EFFB</color>
+    <color name="grey_200">#EEF2F4</color>
+    <color name="grey_100">#F9FAFB</color>
+    <color name="grey_50">#F2F2F2</color>
+
     <color name="text_color_600">#111827</color>
     <color name="text_color_500">#4B5563</color>
     <color name="text_color_400">#6B7280</color>

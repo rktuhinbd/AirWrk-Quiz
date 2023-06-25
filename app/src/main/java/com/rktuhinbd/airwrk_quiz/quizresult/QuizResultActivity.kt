@@ -5,20 +5,20 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.GsonBuilder
-import com.rktuhinbd.airwrk_quiz.databinding.ActivityQuizEndBinding
+import com.rktuhinbd.airwrk_quiz.databinding.ActivityQuizResultBinding
 import com.rktuhinbd.airwrk_quiz.quiz.viewmodel.QuizRoomViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class QuizEndActivity : AppCompatActivity() {
+class QuizResultActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityQuizEndBinding
+    private lateinit var binding: ActivityQuizResultBinding
 
     private lateinit var roomViewModel: QuizRoomViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityQuizEndBinding.inflate(layoutInflater)
+        binding = ActivityQuizResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         roomViewModel = ViewModelProvider(this)[QuizRoomViewModel::class.java]
@@ -28,7 +28,7 @@ class QuizEndActivity : AppCompatActivity() {
 
     private fun initObserver() {
 
-        roomViewModel.quizDataObserver.observe(this@QuizEndActivity) { data ->
+        roomViewModel.quizDataObserver.observe(this@QuizResultActivity) { data ->
             if (data.isNotEmpty()) {
                 Log.d("WOW", "onCreate: ${GsonBuilder().setPrettyPrinting().create().toJson(data)}")
             }

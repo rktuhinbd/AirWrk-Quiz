@@ -66,7 +66,6 @@
         <item name="fontFamily">@font/sf_pro_text_regular</item>
     </style>
 
-
     <!--     ~ ~ ~ > Button Style Primary Large < ~ ~ ~ -->
     <style name="ButtonPrimaryLarge" parent="TextAppearance.AppCompat.Widget.Button">
         <item name="android:background">@drawable/selector_button_primary</item>

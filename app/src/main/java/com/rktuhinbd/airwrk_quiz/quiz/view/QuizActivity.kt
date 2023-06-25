@@ -10,7 +10,7 @@ import com.rktuhinbd.airwrk_quiz.databinding.ActivityQuizBinding
 import com.rktuhinbd.airwrk_quiz.quiz.model.QuizData
 import com.rktuhinbd.airwrk_quiz.quiz.model.QuizJsonData
 import com.rktuhinbd.airwrk_quiz.quiz.viewmodel.QuizRoomViewModel
-import com.rktuhinbd.airwrk_quiz.quizresult.QuizEndActivity
+import com.rktuhinbd.airwrk_quiz.quizresult.QuizResultActivity
 import com.rktuhinbd.airwrk_quiz.utilities.Utils.getCurrentDateTime
 import com.rktuhinbd.airwrk_quiz.utilities.Utils.readJsonFile
 import dagger.hilt.android.AndroidEntryPoint
@@ -127,7 +127,7 @@ class QuizActivity : AppCompatActivity() {
 
                 roomViewModel.addQuizData(quizData)
 
-                startActivity(Intent(this, QuizEndActivity::class.java))
+                startActivity(Intent(this, QuizResultActivity::class.java))
             }
         }
     }
