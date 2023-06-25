@@ -18,4 +18,5 @@
     <string name="sorry_">Sorry!!!</string>
     <string name="quiz_history">Quiz History</string>
     <string name="quiz_details">Quiz Details</string>
+    <string name="time_s_up">Time\'s up!</string>
 </resources>

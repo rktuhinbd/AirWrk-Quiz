@@ -162,6 +162,7 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private val countdownTimer = object : CountDownTimer(totalTimeInMillis, 1000) {
+        @SuppressLint("SetTextI18n")
         override fun onTick(millisUntilFinished: Long) {
             val secondsRemaining = millisUntilFinished / 1000
 
@@ -175,7 +176,7 @@ class QuizActivity : AppCompatActivity() {
         }
 
         override fun onFinish() {
-            binding.toolbar.tvTimer.text = "Time's up!"
+            binding.toolbar.tvTimer.text = getString(R.string.time_s_up)
 
             quizList[questionIndex].givenAnswer = ""
             showAnswerDialog()
