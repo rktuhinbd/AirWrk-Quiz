@@ -49,12 +49,12 @@ class AnswerRvAdapter(
 
             if (correctAnswer == dataSet) {
                 viewHolder.binding.body.setBackgroundResource(R.drawable.shape_correct_answer)
-                viewHolder.binding.ivAnswerIndicator.setImageResource(R.drawable.ic_correct_answer)
+                viewHolder.binding.ivAnswerIndicator.setImageResource(R.drawable.ic_tick_circular)
                 viewHolder.binding.tvOptionTV.setTextColor(context.getColor(R.color.green_500))
             } else {
                 viewHolder.binding.body.setBackgroundResource(R.drawable.shape_wrong_answer)
-                viewHolder.binding.ivAnswerIndicator.setImageResource(R.drawable.ic_wrong_answer)
-                viewHolder.binding.tvOptionTV.setTextColor(context.getColor(R.color.red))
+                viewHolder.binding.ivAnswerIndicator.setImageResource(R.drawable.ic_cross_circular)
+                viewHolder.binding.tvOptionTV.setTextColor(context.getColor(R.color.red_500))
             }
 
             viewHolder.binding.ivAnswerIndicator.visibility = View.VISIBLE

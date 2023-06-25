@@ -31,7 +31,7 @@ class AnswerStatusDialog(val data: QuizJsonData) : DialogFragment() {
             binding.tvAnswerStatus.setTextColor(requireContext().getColor(R.color.green_500))
         } else {
             binding.ivLogo.setImageDrawable(requireContext().getDrawable(R.drawable.logo_wrong_answer))
-            binding.tvAnswerStatus.setTextColor(requireContext().getColor(R.color.red))
+            binding.tvAnswerStatus.setTextColor(requireContext().getColor(R.color.red_500))
             if (!TextUtils.isEmpty(data.givenAnswer)) {
                 binding.tvAnswerStatus.text = "Your answer: ${data.givenAnswer} is wrong!!!"
             } else {

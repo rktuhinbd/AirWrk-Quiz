@@ -10,7 +10,7 @@ import com.rktuhinbd.airwrk_quiz.databinding.ActivityQuizBinding
 import com.rktuhinbd.airwrk_quiz.quiz.model.QuizData
 import com.rktuhinbd.airwrk_quiz.quiz.model.QuizJsonData
 import com.rktuhinbd.airwrk_quiz.quiz.viewmodel.QuizRoomViewModel
-import com.rktuhinbd.airwrk_quiz.quizend.QuizEndActivity
+import com.rktuhinbd.airwrk_quiz.quizresult.QuizEndActivity
 import com.rktuhinbd.airwrk_quiz.utilities.Utils.getCurrentDateTime
 import com.rktuhinbd.airwrk_quiz.utilities.Utils.readJsonFile
 import dagger.hilt.android.AndroidEntryPoint
@@ -139,7 +139,7 @@ class QuizActivity : AppCompatActivity() {
             totalTimeTakenInSec++
 
             if (secondsRemaining < 16) {
-                binding.toolbar.tvTimer.setTextColor(getColor(R.color.red))
+                binding.toolbar.tvTimer.setTextColor(getColor(R.color.red_500))
             }
 
             binding.toolbar.tvTimer.text = "$secondsRemaining seconds"

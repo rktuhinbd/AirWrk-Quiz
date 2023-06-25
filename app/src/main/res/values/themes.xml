@@ -38,6 +38,12 @@
     </style>
 
     <!--     ~ ~ ~ > Text Style Body / Paragraph SemiBold < ~ ~ ~ -->
+    <style name="TextBodySemiBold" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/text_color_600</item>
+        <item name="android:textSize">@dimen/text_size_h3</item>
+        <item name="fontFamily">@font/sf_pro_text_semibold</item>
+    </style>
+
 
     <!--     ~ ~ ~ > Text Style Body / Paragraph Medium < ~ ~ ~ -->
     <style name="TextBodyMedium" parent="Widget.AppCompat.TextView">
@@ -50,6 +56,13 @@
     <style name="TextBodyRegular" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/text_color_600</item>
         <item name="android:textSize">@dimen/text_size_h3</item>
+        <item name="fontFamily">@font/sf_pro_text_regular</item>
+    </style>
+
+    <!--     ~ ~ ~ > Text Style OverLine Regular < ~ ~ ~ -->
+    <style name="TextOverLineRegular" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/text_color_600</item>
+        <item name="android:textSize">@dimen/text_size_h4</item>
         <item name="fontFamily">@font/sf_pro_text_regular</item>
     </style>
 
@@ -66,6 +79,16 @@
         <item name="android:textSize">@dimen/text_size_h2</item>
     </style>
 
-    <!--     ~ ~ ~ > Button Style Primary Small < ~ ~ ~ -->
+    <!--     ~ ~ ~ > Button Style Secondary Large < ~ ~ ~ -->
+    <style name="ButtonSecondaryLarge" parent="TextAppearance.AppCompat.Widget.Button">
+        <item name="android:background">@drawable/shape_button_secondary</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:layout_height">@dimen/_48dp</item>
+        <item name="android:paddingStart">@dimen/_16dp</item>
+        <item name="android:paddingEnd">@dimen/_16dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/green_500</item>
+        <item name="android:textSize">@dimen/text_size_h2</item>
+    </style>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.rktuhinbd.airwrk_quiz.quizend
+package com.rktuhinbd.airwrk_quiz.quizresult
 
 import android.os.Bundle
 import android.util.Log
