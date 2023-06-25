@@ -18,13 +18,18 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class QuizActivity : AppCompatActivity() {
 
+    // * * * * * * View Properties * * * * * //
+
     private lateinit var binding: ActivityQuizBinding
 
     private lateinit var roomViewModel: QuizRoomViewModel
 
-    lateinit var rvAdapter: AnswerRvAdapter
+    private lateinit var rvAdapter: AnswerRvAdapter
 
     private lateinit var answerDialog: AnswerStatusDialog
+
+
+    // * * * * * * Data Properties * * * * * //
 
     private val TAG: String = "QuizActivity"
 
@@ -32,7 +37,7 @@ class QuizActivity : AppCompatActivity() {
 
     private var answerList: ArrayList<QuizJsonData> = arrayListOf()
 
-    private val totalTimeInMillis: Long = 5000 // 60 secs
+    private val totalTimeInMillis: Long = 5000 /*** => 60 secs ***/
 
     private var questionIndex: Int = 0
 
@@ -102,8 +107,9 @@ class QuizActivity : AppCompatActivity() {
                 if (quizList[questionIndex].givenAnswer == quizList[questionIndex].correctAnswer) {
                     score++
                 } else {
-                    if (score != 0) {
-                        score--
+                    score--
+                    if (score < 0) {
+                        score = 0
                     }
                 }
 
@@ -124,6 +130,7 @@ class QuizActivity : AppCompatActivity() {
                 val quizData = QuizData()
                 quizData.quizData?.addAll(answerList)
                 quizData.date = getCurrentDateTime()
+                quizData.timeTaken = totalTimeTakenInSec
 
                 roomViewModel.addQuizData(quizData)
 

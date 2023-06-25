@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,454 +8,433 @@
     android:orientation="vertical"
     android:padding="@dimen/_16dp">
 
-    <LinearLayout
-        android:id="@+id/layoutContent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clPassFail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"
-        tools:visibility="visible">
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="@dimen/_54dp"
+            android:layout_height="@dimen/_54dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_passed"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tvCongratulations"
+            style="@style/TextHeaderSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvPassFailInfo"
+            app:layout_constraintStart_toEndOf="@+id/ivLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/congratulation_" />
+
+        <TextView
+            android:id="@+id/tvPassFailInfo"
+            style="@style/TextSubtitleSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12dp"
+            android:layout_marginTop="@dimen/_4dp"
+            android:textColor="@color/text_color_400"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivLogo"
+            app:layout_constraintTop_toBottomOf="@+id/tvCongratulations"
+            tools:text="@string/you_are_passed" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/viewDivider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/_12dp"
+        android:background="@color/text_color_100" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clPassFail"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="visible">
+            android:paddingEnd="@dimen/_16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/viewDivider2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry">
 
             <ImageView
-                android:id="@+id/ivResult"
-                android:layout_width="@dimen/_54dp"
-                android:layout_height="@dimen/_54dp"
-                android:visibility="visible"
+                android:id="@+id/ivScore"
+                android:layout_width="@dimen/_18dp"
+                android:layout_height="@dimen/_18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_passed"
+                app:srcCompat="@drawable/ic_star"
                 tools:ignore="ContentDescription" />
 
-            <TextView
-                android:id="@+id/tvResult"
-                style="@style/TextHeaderSemiBold"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/layoutScoreDetails"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_12dp"
-                app:layout_constraintBottom_toTopOf="@+id/tvInfo"
-                app:layout_constraintStart_toEndOf="@+id/ivResult"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/congratulation_" />
-
-            <TextView
-                android:id="@+id/tvInfo"
-                style="@style/TextSubtitleSemiBold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_12dp"
-                android:layout_marginTop="@dimen/_4dp"
-                android:textColor="@color/text_color_400"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ivResult"
-                app:layout_constraintTop_toBottomOf="@+id/tvResult"
-                tools:text="@string/you_are_passed" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivScore"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/TextOverLineRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/your_score"
+                    android:textColor="@color/text_color_500" />
+
+                <TextView
+                    android:id="@+id/tvScore"
+                    style="@style/TextBodySemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="7/20" />
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
-            android:id="@+id/viewDivider1"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/_12dp"
+            android:id="@+id/viewDivider2"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
             android:background="@color/text_color_100"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivResultStatus" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/view1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewDivider1">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingEnd="@dimen/_16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/viewDivider2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlSymmetry">
-
-                <ImageView
-                    android:id="@+id/ivScore"
-                    android:layout_width="@dimen/_18dp"
-                    android:layout_height="@dimen/_18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_star"
-                    tools:ignore="ContentDescription" />
-
-                <LinearLayout
-                    android:id="@+id/layoutScoreDetails"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8dp"
-                    android:layout_marginTop="@dimen/_10dp"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/ivScore"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        style="@style/TextOverLineRegular"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/your_score"
-                        android:textColor="@color/text_color_500" />
-
-                    <TextView
-                        android:id="@+id/tvScore"
-                        style="@style/TextBodySemiBold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="7/20" />
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:id="@+id/viewDivider2"
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:background="@color/text_color_100"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/_16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/viewDivider2"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlSymmetry">
-
-                <ImageView
-                    android:id="@+id/ivTime"
-                    android:layout_width="@dimen/_18dp"
-                    android:layout_height="@dimen/_18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_clock"
-                    tools:ignore="ContentDescription" />
-
-                <LinearLayout
-                    android:id="@+id/layoutTimeDetails"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8dp"
-                    android:layout_marginTop="@dimen/_10dp"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/ivTime"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        style="@style/TextOverLineRegular"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/taken_time"
-                        android:textColor="@color/text_color_500" />
-
-                    <TextView
-                        android:id="@+id/tvTime"
-                        style="@style/TextBodySemiBold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="1:32 Minute" />
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <View
-            android:id="@+id/viewDivider3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/text_color_100"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view1" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/view2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewDivider3">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingEnd="@dimen/_16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/viewDivider4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlSymmetry">
-
-                <ImageView
-                    android:id="@+id/ivCorrectAnswer"
-                    android:layout_width="@dimen/_18dp"
-                    android:layout_height="@dimen/_18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_tick_circular"
-                    tools:ignore="ContentDescription" />
-
-                <LinearLayout
-                    android:id="@+id/layoutCorrectAnswerDetails"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8dp"
-                    android:layout_marginTop="@dimen/_10dp"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/ivCorrectAnswer"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        style="@style/TextOverLineRegular"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/correct_answer"
-                        android:textColor="@color/text_color_500" />
-
-                    <TextView
-                        android:id="@+id/tvCorrectAnswers"
-                        style="@style/TextBodySemiBold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="3" />
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:id="@+id/viewDivider4"
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:background="@color/text_color_100"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/_16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/viewDivider4"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlSymmetry">
-
-                <ImageView
-                    android:id="@+id/ivWrongAnswer"
-                    android:layout_width="@dimen/_18dp"
-                    android:layout_height="@dimen/_18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_cross_circular"
-                    tools:ignore="ContentDescription" />
-
-                <LinearLayout
-                    android:id="@+id/layoutWrongAnswerDetails"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8dp"
-                    android:layout_marginTop="@dimen/_10dp"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/ivWrongAnswer"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        style="@style/TextOverLineRegular"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/wrong_answer"
-                        android:textColor="@color/text_color_500" />
-
-                    <TextView
-                        android:id="@+id/tvWrongAnswer"
-                        style="@style/TextBodySemiBold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="3" />
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <View
-            android:id="@+id/viewDivider5"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/text_color_100"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view2" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/view3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewDivider5">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingEnd="@dimen/_16dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewDivider2"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry">
+
+            <ImageView
+                android:id="@+id/ivTime"
+                android:layout_width="@dimen/_18dp"
+                android:layout_height="@dimen/_18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/viewDivider6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlSymmetry">
+                app:srcCompat="@drawable/ic_clock"
+                tools:ignore="ContentDescription" />
 
-                <ImageView
-                    android:id="@+id/ivNotAnswered"
-                    android:layout_width="@dimen/_18dp"
-                    android:layout_height="@dimen/_18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_radio_unchecked"
-                    tools:ignore="ContentDescription" />
-
-                <LinearLayout
-                    android:id="@+id/layoutNotAnsweredDetails"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8dp"
-                    android:layout_marginTop="@dimen/_10dp"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/ivNotAnswered"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        style="@style/TextOverLineRegular"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/question_skipped"
-                        android:textColor="@color/text_color_500" />
-
-                    <TextView
-                        android:id="@+id/tvNotAnswered"
-                        style="@style/TextBodySemiBold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="3" />
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:id="@+id/viewDivider6"
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:background="@color/text_color_100"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/negativeMarkingLayout"
+            <LinearLayout
+                android:id="@+id/layoutTimeDetails"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingStart="@dimen/_16dp"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/viewDivider6"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="RtlSymmetry">
+                app:layout_constraintStart_toEndOf="@+id/ivTime"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/ivNegativeMarking"
-                    android:layout_width="@dimen/_18dp"
-                    android:layout_height="@dimen/_18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_negative"
-                    tools:ignore="ContentDescription" />
-
-                <LinearLayout
-                    android:id="@+id/layoutNegativeMarkingDetails"
-                    android:layout_width="0dp"
+                <TextView
+                    style="@style/TextOverLineRegular"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8dp"
-                    android:layout_marginTop="@dimen/_10dp"
-                    android:layout_marginBottom="@dimen/_8dp"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/ivNegativeMarking"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:text="@string/taken_time"
+                    android:textColor="@color/text_color_500" />
 
-                    <TextView
-                        style="@style/TextOverLineRegular"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/negative_marking"
-                        android:textColor="@color/text_color_500" />
+                <TextView
+                    android:id="@+id/tvTime"
+                    style="@style/TextBodySemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="1:32 Minute" />
 
-                    <TextView
-                        android:id="@+id/tvNegativeMarking"
-                        style="@style/TextBodySemiBold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/not_applicable" />
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</RelativeLayout>
+    <View
+        android:id="@+id/viewDivider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/text_color_100" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/_16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/viewDivider4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry">
+
+            <ImageView
+                android:id="@+id/ivCorrectAnswer"
+                android:layout_width="@dimen/_18dp"
+                android:layout_height="@dimen/_18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_tick_circular"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:id="@+id/layoutCorrectAnswerDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivCorrectAnswer"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/TextOverLineRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/correct_answer"
+                    android:textColor="@color/text_color_500" />
+
+                <TextView
+                    android:id="@+id/tvCorrectAnswers"
+                    style="@style/TextBodySemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="3" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/viewDivider4"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/text_color_100"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewDivider4"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry">
+
+            <ImageView
+                android:id="@+id/ivWrongAnswer"
+                android:layout_width="@dimen/_18dp"
+                android:layout_height="@dimen/_18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_cross_circular"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:id="@+id/layoutWrongAnswerDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivWrongAnswer"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/TextOverLineRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wrong_answer"
+                    android:textColor="@color/text_color_500" />
+
+                <TextView
+                    android:id="@+id/tvWrongAnswer"
+                    style="@style/TextBodySemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="3" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/viewDivider5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/text_color_100" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/_16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/viewDivider6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry">
+
+            <ImageView
+                android:id="@+id/ivNotAnswered"
+                android:layout_width="@dimen/_18dp"
+                android:layout_height="@dimen/_18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_radio_unchecked"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:id="@+id/layoutNotAnsweredDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivNotAnswered"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/TextOverLineRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/question_skipped"
+                    android:textColor="@color/text_color_500" />
+
+                <TextView
+                    android:id="@+id/tvNotAnswered"
+                    style="@style/TextBodySemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="3" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/viewDivider6"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/text_color_100"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/negativeMarkingLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewDivider6"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry">
+
+            <ImageView
+                android:id="@+id/ivNegativeMarking"
+                android:layout_width="@dimen/_18dp"
+                android:layout_height="@dimen/_18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_negative"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:id="@+id/layoutNegativeMarkingDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivNegativeMarking"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/TextOverLineRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/negative_marking"
+                    android:textColor="@color/text_color_500" />
+
+                <TextView
+                    android:id="@+id/tvNegativeMarking"
+                    style="@style/TextBodySemiBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/not_applicable" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/viewDivider7"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/text_color_100" />
+
+</LinearLayout>
+

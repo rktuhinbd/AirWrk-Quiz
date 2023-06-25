@@ -52,13 +52,13 @@
             android:text="@string/retry" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/nextBtn"
+            android:id="@+id/viewHistoryBtn"
             style="@style/ButtonPrimaryLarge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10dp"
             android:layout_weight="1"
-            android:text="@string/next" />
+            android:text="@string/view_history" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

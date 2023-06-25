@@ -18,6 +18,10 @@ data class QuizData(
     @SerializedName(QuizTable.DATE)
     var date: String? = null,
 
+    @ColumnInfo(name = QuizTable.TIME_TAKEN)
+    @SerializedName(QuizTable.TIME_TAKEN)
+    var timeTaken: Int? = 0,
+
     @ColumnInfo(name = QuizTable.QUIZ_DATA)
     @SerializedName(QuizTable.QUIZ_DATA)
     var quizData: MutableList<QuizJsonData>? = arrayListOf()

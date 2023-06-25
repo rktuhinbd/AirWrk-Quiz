@@ -11,7 +11,7 @@ data class QuizJsonData (
     @SerializedName("difficulty"        ) var difficulty       : String?           = null,
     @SerializedName("question"          ) var question         : String?           = null,
     @SerializedName("correct_answer"    ) var correctAnswer    : String?           = null,
-    @SerializedName("given_answer"      ) var givenAnswer      : String?           = null,
+    @SerializedName("given_answer"      ) var givenAnswer      : String?           = "",
     @SerializedName("answers"           ) var answers          : ArrayList<String> = arrayListOf(),
 
 )
