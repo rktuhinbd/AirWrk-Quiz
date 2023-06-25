@@ -72,26 +72,24 @@ class QuizResultActivity : AppCompatActivity() {
         var correctAnswerCount = 0
         var wrongAnswerCount = 0
         var skippedCount = 0
-        var timeTaken = 0
 
         quizData.quizData?.forEach {
             if (it.correctAnswer == it.givenAnswer) {
                 correctAnswerCount++
-                score++
             } else {
                 if (it.givenAnswer.equals("")) {
                     skippedCount++
                 }
                 wrongAnswerCount++
-                score--
             }
         }
 
+        score = correctAnswerCount - (wrongAnswerCount + skippedCount)
         if (score < 0) {
             score = 0
         }
 
-        timeTaken = quizData.timeTaken ?: 0
+        val timeTaken: Int = quizData.timeTaken ?: 0
 
         if (score >= (quizData.quizData?.size?.div(2)!!)) {
             binding.layoutExamResult.ivLogo.setImageResource(R.drawable.ic_passed)
